@@ -12,6 +12,18 @@
 
 # testing
 /coverage
+tests/
+test/
+__tests__/
+*.test.*
+*.spec.*
+
+# scripts
+scripts/
+*.sh
+
+# markdown
+*.md
 
 # next.js
 /.next/
