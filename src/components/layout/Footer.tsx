@@ -4,9 +4,9 @@ import { BRAND_INFO, NAV_LINKS } from "@/data/landingData";
 export default function Footer() {
   return (
     <footer className="bg-[#14243a] text-white">
-      <div className="mx-auto max-w-[1440px] px-5 py-12 sm:px-10 lg:px-14">
+      <div className="mx-auto max-w-[1440px] px-4 py-10 sm:px-10 sm:py-12 lg:px-14">
         {/* Main Footer Grid */}
-        <div className="grid gap-10 border-b border-white/15 pb-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_0.8fr]">
+        <div className="grid gap-8 sm:gap-10 border-b border-white/15 pb-8 sm:pb-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr_0.8fr]">
           {/* Column 1: Brand & Positioning */}
           <div>
             <div className="flex items-center gap-3">
@@ -14,7 +14,7 @@ export default function Footer() {
                 R<span className="-ml-0.5 mt-2 text-[#d9c58f]">.</span>
               </div>
               <div>
-                <p className="text-base font-bold uppercase tracking-wider text-white">
+                <p className="text-sm sm:text-base font-bold uppercase tracking-wider text-white">
                   {BRAND_INFO.name}
                 </p>
                 <p className="text-[10px] font-bold uppercase tracking-widest text-[#d9c58f]">
@@ -23,11 +23,11 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="mt-4 max-w-md text-xs sm:text-sm leading-relaxed text-white/70">
+            <p className="mt-3.5 max-w-md text-xs sm:text-sm leading-relaxed text-white/70">
               School Foundation | Scholarship Preparation | Olympiads | IIT-JEE | NEET
             </p>
 
-            <div className="mt-4 flex flex-wrap gap-2 text-xs text-white/60">
+            <div className="mt-4 flex flex-wrap gap-2 text-[11px] sm:text-xs text-white/60">
               <span className="rounded bg-white/5 px-2.5 py-1">Online & Offline Batches</span>
               <span className="rounded bg-white/5 px-2.5 py-1">English & Semi-English Medium</span>
             </div>
@@ -42,7 +42,7 @@ export default function Footer() {
             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#d9c58f]">
               Quick Links
             </p>
-            <div className="mt-4 flex flex-col items-start gap-2.5 text-xs sm:text-sm text-white/70">
+            <div className="mt-3 sm:mt-4 flex flex-col items-start gap-2.5 text-xs sm:text-sm text-white/70">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}

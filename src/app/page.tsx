@@ -2,6 +2,7 @@ import React from "react";
 import TopNoticeBar from "@/components/layout/TopNoticeBar";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import MobileStickyActionBar from "@/components/layout/MobileStickyActionBar";
 
 // Modular Section Components
 import HeroSection from "@/components/sections/hero/HeroSection";
@@ -18,7 +19,7 @@ import LocationContactSection from "@/components/sections/contact/LocationContac
 
 export default function Home() {
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#f8f6ef] text-[#202b35] selection:bg-[#192e4b] selection:text-white">
+    <div className="min-h-screen overflow-x-hidden bg-[#f8f6ef] text-[#202b35] selection:bg-[#192e4b] selection:text-white pb-[calc(4.5rem+env(safe-area-inset-bottom,0px))] sm:pb-0">
       {/* Institutional Top Bar */}
       <TopNoticeBar />
 
@@ -63,6 +64,9 @@ export default function Home() {
 
       {/* 12. Final Footer Message & Quick Links */}
       <Footer />
+
+      {/* Mobile Sticky Quick Action Bar (Calls & Admissions) */}
+      <MobileStickyActionBar />
     </div>
   );
 }

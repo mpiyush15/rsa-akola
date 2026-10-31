@@ -43,6 +43,7 @@ export default function MissionSuper45Card() {
           variant="primary"
           hasArrow
           diagonalArrow
+          className="w-full sm:w-auto text-center"
         >
           {mission45.cta}
         </ActionButton>

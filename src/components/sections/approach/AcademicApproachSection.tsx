@@ -5,15 +5,15 @@ import ApproachPillarCard from "./ApproachPillarCard";
 
 export default function AcademicApproachSection() {
   return (
-    <section id="approach" className="mx-auto max-w-[1440px] px-5 py-20 sm:px-10 lg:px-14 lg:py-24">
+    <section id="approach" className="mx-auto max-w-[1440px] px-4 py-12 sm:px-10 sm:py-20 lg:px-14 lg:py-24">
       <SectionLabel>Our Approach</SectionLabel>
 
-      <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+      <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
         <div>
-          <h2 className="max-w-lg text-3xl font-bold leading-tight text-[#192e4b] sm:text-4xl">
+          <h2 className="max-w-lg text-2xl font-bold leading-tight text-[#192e4b] sm:text-4xl">
             Strong concepts. Consistent practice. Better performance.
           </h2>
-          <p className="mt-4 max-w-md text-sm leading-7 text-[#626b6b]">
+          <p className="mt-3 max-w-md text-xs sm:text-sm leading-relaxed sm:leading-7 text-[#626b6b]">
             We believe academic success is built through consistent effort, systematic syllabus coverage, and the right learning environment.
           </p>
         </div>

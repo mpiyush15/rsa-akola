@@ -4,7 +4,7 @@ import { BRAND_INFO } from "@/data/landingData";
 
 export default function ContactDetailsCard() {
   return (
-    <div className="border border-[#ded8ca] bg-white p-7 sm:p-9">
+    <div className="border border-[#ded8ca] bg-white p-5 sm:p-9">
       <div className="flex items-center gap-2">
         <span className="h-2 w-2 rounded-full bg-[#496b58]" />
         <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#496b58]">
@@ -12,7 +12,7 @@ export default function ContactDetailsCard() {
         </p>
       </div>
 
-      <h3 className="mt-3 text-2xl font-bold text-[#192e4b]">
+      <h3 className="mt-2.5 text-xl sm:text-2xl font-bold text-[#192e4b]">
         {BRAND_INFO.name}
       </h3>
       <p className="mt-2 text-sm text-[#626b6b]">

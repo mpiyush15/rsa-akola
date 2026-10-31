@@ -39,21 +39,21 @@ export default function AdmissionEnquiryForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-xl border border-[#496b58]/40 bg-[#f8f6ef] p-8 text-center shadow-md">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#496b58] text-2xl text-white">
+      <div className="border border-[#496b58]/40 bg-[#f8f6ef] p-6 sm:p-8 text-center shadow-xs">
+        <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-[#496b58] text-xl text-white">
           ✓
         </div>
-        <h3 className="mt-5 text-2xl font-bold text-[#192e4b]">
+        <h3 className="mt-4 text-xl sm:text-2xl font-bold text-[#192e4b]">
           Thank You, {formData.parentName || "Parent"}!
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-[#626b6b]">
-          Your admission enquiry for student <strong className="text-[#192e4b]">{formData.studentName || "your child"}</strong> has been received. Our academic counsellors will contact you on <strong className="text-[#192e4b]">{formData.mobileNumber}</strong> shortly.
+        <p className="mt-2 text-xs sm:text-sm leading-relaxed text-[#626b6b]">
+          Your admission enquiry for student <strong className="text-[#192e4b]">{formData.studentName || "your child"}</strong> has been received. Our counsellors will contact you on <strong className="text-[#192e4b]">{formData.mobileNumber}</strong> shortly.
         </p>
         <div className="mt-6">
           <button
             type="button"
             onClick={() => setSubmitted(false)}
-            className="text-xs font-bold uppercase tracking-wider text-[#a8322b] underline hover:text-[#872720]"
+            className="text-xs font-bold uppercase tracking-wider text-[#a8322b] underline hover:text-[#872720] cursor-pointer"
           >
             Submit Another Enquiry
           </button>
@@ -65,7 +65,7 @@ export default function AdmissionEnquiryForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="border border-[#ded8ca] bg-white p-7 sm:p-9"
+      className="border border-[#ded8ca] bg-white p-5 sm:p-9"
       aria-label="Admissions Enquiry Form"
     >
       <div className="border-b border-[#ded8ca]/60 pb-4">
@@ -94,7 +94,7 @@ export default function AdmissionEnquiryForm() {
             value={formData.parentName}
             onChange={handleChange}
             placeholder="e.g. Rajesh Sharma"
-            className="mt-1.5 w-full rounded border border-[#ded8ca] bg-[#f8f6ef]/50 px-3.5 py-2.5 text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#192e4b]"
+            className="mt-1.5 w-full rounded border border-[#ded8ca] bg-[#f8f6ef]/50 px-3.5 py-3 text-base sm:text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#192e4b]"
           />
         </div>
 
@@ -114,7 +114,7 @@ export default function AdmissionEnquiryForm() {
             value={formData.studentName}
             onChange={handleChange}
             placeholder="e.g. Aarav Sharma"
-            className="mt-1.5 w-full rounded border border-[#ded8ca] bg-[#f8f6ef]/50 px-3.5 py-2.5 text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#192e4b]"
+            className="mt-1.5 w-full rounded border border-[#ded8ca] bg-[#f8f6ef]/50 px-3.5 py-3 text-base sm:text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#192e4b]"
           />
         </div>
 
@@ -136,7 +136,7 @@ export default function AdmissionEnquiryForm() {
             value={formData.mobileNumber}
             onChange={handleChange}
             placeholder="10-digit mobile number"
-            className="mt-1.5 w-full rounded border border-[#ded8ca] bg-[#f8f6ef]/50 px-3.5 py-2.5 text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#192e4b]"
+            className="mt-1.5 w-full rounded border border-[#ded8ca] bg-[#f8f6ef]/50 px-3.5 py-3 text-base sm:text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#192e4b]"
           />
         </div>
 
@@ -153,7 +153,7 @@ export default function AdmissionEnquiryForm() {
             name="standard"
             value={formData.standard}
             onChange={handleChange}
-            className="mt-1.5 w-full rounded border border-[#ded8ca] bg-[#f8f6ef]/50 px-3.5 py-2.5 text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:bg-white focus:outline-none"
+            className="mt-1.5 w-full rounded border border-[#ded8ca] bg-[#f8f6ef]/50 px-3.5 py-3 text-base sm:text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:bg-white focus:outline-none"
           >
             {ADMISSIONS_CONTENT.standardOptions.map((std) => (
               <option key={std} value={std}>
@@ -176,7 +176,7 @@ export default function AdmissionEnquiryForm() {
             name="board"
             value={formData.board}
             onChange={handleChange}
-            className="mt-1.5 w-full rounded border border-[#ded8ca] bg-[#f8f6ef]/50 px-3.5 py-2.5 text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:bg-white focus:outline-none"
+            className="mt-1.5 w-full rounded border border-[#ded8ca] bg-[#f8f6ef]/50 px-3.5 py-3 text-base sm:text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:bg-white focus:outline-none"
           >
             {ADMISSIONS_CONTENT.boardOptions.map((bd) => (
               <option key={bd} value={bd}>
@@ -199,7 +199,7 @@ export default function AdmissionEnquiryForm() {
             name="medium"
             value={formData.medium}
             onChange={handleChange}
-            className="mt-1.5 w-full rounded border border-[#ded8ca] bg-[#f8f6ef]/50 px-3.5 py-2.5 text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:bg-white focus:outline-none"
+            className="mt-1.5 w-full rounded border border-[#ded8ca] bg-[#f8f6ef]/50 px-3.5 py-3 text-base sm:text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:bg-white focus:outline-none"
           >
             {ADMISSIONS_CONTENT.mediumOptions.map((med) => (
               <option key={med} value={med}>
@@ -222,7 +222,7 @@ export default function AdmissionEnquiryForm() {
             name="programme"
             value={formData.programme}
             onChange={handleChange}
-            className="mt-1.5 w-full rounded border border-[#ded8ca] bg-[#f8f6ef]/50 px-3.5 py-2.5 text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:bg-white focus:outline-none"
+            className="mt-1.5 w-full rounded border border-[#ded8ca] bg-[#f8f6ef]/50 px-3.5 py-3 text-base sm:text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:bg-white focus:outline-none"
           >
             {ADMISSIONS_CONTENT.programmesOfInterest.map((p) => (
               <option key={p} value={p}>
@@ -245,7 +245,7 @@ export default function AdmissionEnquiryForm() {
             name="learningPreference"
             value={formData.learningPreference}
             onChange={handleChange}
-            className="mt-1.5 w-full rounded border border-[#ded8ca] bg-[#f8f6ef]/50 px-3.5 py-2.5 text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:bg-white focus:outline-none"
+            className="mt-1.5 w-full rounded border border-[#ded8ca] bg-[#f8f6ef]/50 px-3.5 py-3 text-base sm:text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:bg-white focus:outline-none"
           >
             {ADMISSIONS_CONTENT.learningPreferences.map((pref) => (
               <option key={pref} value={pref}>
@@ -260,7 +260,7 @@ export default function AdmissionEnquiryForm() {
         <button
           type="submit"
           disabled={loading}
-          className="group flex w-full items-center justify-center gap-3 rounded bg-[#a8322b] py-4 text-xs sm:text-sm font-bold text-white shadow-md transition-all hover:bg-[#872720] hover:shadow-lg disabled:opacity-60 cursor-pointer"
+          className="group flex w-full items-center justify-center gap-3 bg-[#a8322b] py-3.5 sm:py-4 text-xs sm:text-sm font-bold text-white transition-all hover:bg-[#872720] disabled:opacity-60 cursor-pointer"
         >
           <span>{loading ? "Submitting..." : "Submit Admission Enquiry"}</span>
           {!loading && <Arrow diagonal />}
