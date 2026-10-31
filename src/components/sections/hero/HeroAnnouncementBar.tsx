@@ -15,16 +15,16 @@ export default function HeroAnnouncementBar() {
         <div className="flex items-center gap-4 text-[11px] sm:text-xs font-bold pt-0.5 sm:pt-0">
           <a
             href="#programmes"
-            className="group text-white/80 transition-colors hover:text-white inline-flex items-center gap-1.5"
+            className="group text-white/80 transition-colors hover:text-white inline-flex items-center gap-1.5 leading-none"
           >
-            <span>Explore Programmes</span>
+            <span className="leading-none">Explore Programmes</span>
             <Arrow />
           </a>
           <a
             href="#admissions"
-            className="group text-[#e7d19d] transition-colors hover:text-white inline-flex items-center gap-1.5"
+            className="group text-[#e7d19d] transition-colors hover:text-white inline-flex items-center gap-1.5 leading-none"
           >
-            <span>Admissions Enquiry</span>
+            <span className="leading-none">Admissions Enquiry</span>
             <Arrow diagonal />
           </a>
         </div>

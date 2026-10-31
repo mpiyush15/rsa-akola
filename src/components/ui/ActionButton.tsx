@@ -29,15 +29,15 @@ export default function ActionButton({
   ariaLabel,
 }: ActionButtonProps) {
   const baseClasses =
-    "group inline-flex items-center justify-center font-bold transition-all duration-200 cursor-pointer select-none";
+    "group inline-flex items-center justify-center font-bold leading-none whitespace-nowrap transition-all duration-200 cursor-pointer select-none";
 
   const variantStyles: Record<ButtonVariant, string> = {
     primary:
       "bg-[#a8322b] text-white hover:bg-[#872720] shadow-sm hover:shadow active:scale-[0.99] px-5 py-3 text-xs sm:text-sm",
     navy:
-      "bg-[#192e4b] text-white hover:bg-[#294665] shadow-sm hover:shadow active:scale-[0.99] px-6 py-3.5 text-xs sm:text-sm",
+      "bg-[#192e4b] text-white hover:bg-[#294665] shadow-sm hover:shadow active:scale-[0.99] px-5 py-3 text-xs sm:text-sm",
     outline:
-      "border border-[#d5cbbc] bg-transparent text-[#192e4b] hover:border-[#a8322b] hover:text-[#a8322b] px-6 py-3.5 text-xs sm:text-sm",
+      "border border-[#d5cbbc] bg-transparent text-[#192e4b] hover:border-[#a8322b] hover:text-[#a8322b] px-5 py-3 text-xs sm:text-sm",
     translucent:
       "bg-white/10 text-white hover:bg-white/20 border border-white/10 px-4 py-2 text-xs",
     link:
@@ -45,7 +45,7 @@ export default function ActionButton({
   };
 
   const combinedClasses = `${baseClasses} ${variantStyles[variant]} ${
-    hasArrow ? "gap-2.5 sm:gap-3" : ""
+    hasArrow ? "gap-2" : ""
   } ${className}`;
 
   if (href) {
@@ -56,7 +56,7 @@ export default function ActionButton({
         aria-label={ariaLabel}
         {...(external ? { target: "_blank", rel: "noreferrer noopener" } : {})}
       >
-        <span>{children}</span>
+        <span className="leading-none">{children}</span>
         {hasArrow && <Arrow diagonal={diagonalArrow} />}
       </a>
     );
@@ -69,7 +69,7 @@ export default function ActionButton({
       className={combinedClasses}
       aria-label={ariaLabel}
     >
-      <span>{children}</span>
+      <span className="leading-none">{children}</span>
       {hasArrow && <Arrow diagonal={diagonalArrow} />}
     </button>
   );
