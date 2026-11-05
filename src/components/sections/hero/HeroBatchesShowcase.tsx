@@ -80,9 +80,6 @@ export default function HeroBatchesShowcase() {
         <h3 className="mt-1.5 text-2xl font-bold tracking-tight text-[#192e4b] sm:text-3xl">
           Ramanujan Scholar Academy
         </h3>
-        <p className="mt-1 text-xs leading-relaxed text-[#626b6b]">
-          Structured academic guidance, school curriculum mastery, scholarship examinations &amp; Olympiad preparation.
-        </p>
 
         {/* Foundation Classes & Exams Table */}
         <div className="mt-3.5 overflow-hidden border border-[#ded8ca] bg-white shadow-xs">
@@ -116,10 +113,6 @@ export default function HeroBatchesShowcase() {
             </tbody>
           </table>
         </div>
-
-        <p className="mt-2 text-[10.5px] sm:text-[11px] font-semibold text-[#496b58]">
-          English &amp; Semi-English Medium · Offline Classroom &amp; Live Online Batches
-        </p>
       </div>
 
       {/* Hairline Divider */}
@@ -139,9 +132,19 @@ export default function HeroBatchesShowcase() {
         <h3 className="mt-1.5 text-2xl font-bold tracking-tight text-[#192e4b] sm:text-3xl">
           PACE IIT &amp; Medical Mumbai
         </h3>
-        <p className="mt-1 text-xs leading-relaxed text-[#626b6b]">
-          Integrated engineering and medical entrance coaching in Akola with AIM, backed by 721+ IIT selections.
-        </p>
+
+        {/* 3 Days Online + 3 Days Classroom Highlights */}
+        <div className="mt-2 flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-4 text-xs font-semibold text-[#192e4b]">
+          <span className="inline-flex items-center gap-1.5">
+            <span className="h-1.5 w-1.5 bg-[#496b58]" aria-hidden="true" />
+            3 Days Online Integrated Programme
+          </span>
+          <span className="hidden sm:inline text-[#ded8ca]">·</span>
+          <span className="inline-flex items-center gap-1.5">
+            <span className="h-1.5 w-1.5 bg-[#a8322b]" aria-hidden="true" />
+            3 Days Classroom Programme
+          </span>
+        </div>
 
         {/* Senior Secondary & Competitive Table */}
         <div className="mt-3.5 overflow-hidden border border-[#ded8ca] bg-white shadow-xs">
@@ -180,10 +183,6 @@ export default function HeroBatchesShowcase() {
             </tbody>
           </table>
         </div>
-
-        <p className="mt-2 text-[10.5px] sm:text-[11px] font-semibold text-[#496b58]">
-          PACE Online Integrated Programme with AIM in Akola · Regular Tests &amp; Analysis
-        </p>
       </div>
     </div>
   );
