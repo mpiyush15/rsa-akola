@@ -170,19 +170,6 @@ export const ABOUT_CONTENT = {
 // 3. ACADEMIC PROGRAMMES
 export const PROGRAMMES: ProgrammeCoverage[] = [
   {
-    title: "School Foundation Programmes",
-    classes: "Classes 3rd to 8th",
-    badge: "Early Foundation",
-    description: "Build a strong academic foundation from the early years emphasizing Mathematics, Science, and logical reasoning.",
-    items: [
-      "Mathematics Foundation",
-      "Science Foundation",
-      "Maths & Science Wisdom",
-      "Ganit Pravinaya & Ganit Pradnya",
-      "Scholarship Examination Preparation",
-    ],
-  },
-  {
     title: "CBSE & State Board Foundation",
     classes: "Classes 6th to 10th",
     badge: "Board Prep",
