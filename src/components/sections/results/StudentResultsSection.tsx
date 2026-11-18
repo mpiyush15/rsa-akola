@@ -1,28 +1,75 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import SectionLabel from "@/components/ui/SectionLabel";
-import ActionButton from "@/components/ui/ActionButton";
-import { STUDENT_RESULTS, RESULT_CATEGORIES } from "@/data/studentResultsData";
-import ResultCard from "./ResultCard";
+
+export interface ResultGalleryItem {
+  id: string;
+  src: string;
+  title?: string;
+}
+
+export const RESULT_GALLERY_IMAGES: ResultGalleryItem[] = [
+  {
+    id: "gallery-1",
+    src: "https://pixels-official.s3.ap-south-1.amazonaws.com/rsa-akola/navoday.png",
+    title: "Navodaya (JNV) Selection & Results - Ramanujan Scholar Academy",
+  },
+  {
+    id: "gallery-2",
+    src: "https://pixels-official.s3.ap-south-1.amazonaws.com/rsa-akola/jee+akolyat.png",
+    title: "JEE Advanced & Mains Selections in Akola - PACE & Ramanujan",
+  },
+];
 
 export default function StudentResultsSection() {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [isZoomed, setIsZoomed] = useState<boolean>(false);
 
-  const filteredResults = useMemo(() => {
-    return STUDENT_RESULTS.filter((student) => {
-      const matchesCategory =
-        activeCategory === "all" || student.category === activeCategory;
-      const matchesSearch =
-        searchQuery.trim() === "" ||
-        student.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        student.exam.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        student.score.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        student.detail.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
-    });
-  }, [activeCategory, searchQuery]);
+  const images = RESULT_GALLERY_IMAGES;
+
+  const handleOpen = (index: number) => {
+    setSelectedImageIndex(index);
+    setIsZoomed(false);
+  };
+
+  const handleClose = () => {
+    setSelectedImageIndex(null);
+    setIsZoomed(false);
+  };
+
+  const handleNext = useCallback(() => {
+    if (selectedImageIndex === null) return;
+    setSelectedImageIndex((prev) => ((prev ?? 0) + 1) % images.length);
+    setIsZoomed(false);
+  }, [selectedImageIndex, images.length]);
+
+  const handlePrev = useCallback(() => {
+    if (selectedImageIndex === null) return;
+    setSelectedImageIndex((prev) => ((prev ?? 0) - 1 + images.length) % images.length);
+    setIsZoomed(false);
+  }, [selectedImageIndex, images.length]);
+
+  useEffect(() => {
+    if (selectedImageIndex === null) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleClose();
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [selectedImageIndex, handleNext, handlePrev]);
+
+  const currentItem = selectedImageIndex !== null ? images[selectedImageIndex] : null;
 
   return (
     <section id="results" className="border-t border-[#ded8ca] bg-[#f0eee5] py-14 sm:py-24">
@@ -35,108 +82,129 @@ export default function StudentResultsSection() {
               Celebrating Academic Milestones.
             </h2>
             <p className="mt-2 max-w-2xl text-xs sm:text-sm leading-relaxed text-[#626b6b]">
-              A curated showcase of verified top performers across IIT-JEE, NEET, Maharashtra State Scholarships, and Maths &amp; Science Wisdom examinations.
+              Browse verified top achievers, merit lists, and result publications across school scholarship examinations, Olympiads, and competitive entrance coaching.
             </p>
           </div>
 
-          {/* Search Box with 16px mobile font to prevent auto-zoom */}
-          <div className="w-full sm:w-72">
-            <label htmlFor="results-search" className="sr-only">
-              Search rankers or exams
-            </label>
-            <input
-              id="results-search"
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Filter by student or exam..."
-              className="w-full rounded border border-[#ded8ca] bg-white px-3.5 py-2.5 text-base sm:text-xs text-[#192e4b] transition focus:border-[#192e4b] focus:outline-none focus:ring-1 focus:ring-[#192e4b]"
-            />
+          <div className="text-xs font-semibold text-[#496b58] sm:text-right">
+            <span>Click image to view &amp; zoom</span>
           </div>
         </div>
 
-        {/* Mobile Swipeable / Desktop Wrapped Filter Tabs */}
-        <div className="mt-6 flex items-center gap-2 overflow-x-auto pb-3 pt-1 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap border-b border-[#ded8ca]">
-          {RESULT_CATEGORIES.map((cat) => {
-            const isActive = activeCategory === cat.id;
-            const count =
-              cat.id === "all"
-                ? STUDENT_RESULTS.length
-                : STUDENT_RESULTS.filter((s) => s.category === cat.id).length;
-
-            return (
-              <button
-                key={cat.id}
-                type="button"
-                onClick={() => setActiveCategory(cat.id)}
-                className={`shrink-0 inline-flex items-center gap-1.5 px-3 py-2 text-xs font-bold transition-colors cursor-pointer ${
-                  isActive
-                    ? "bg-[#192e4b] text-white"
-                    : "bg-[#f8f6ef] text-[#192e4b] border border-[#ded8ca] hover:bg-white"
-                }`}
-              >
-                <span>{cat.label}</span>
-                <span
-                  className={`text-[10px] ${
-                    isActive ? "text-[#d9c58f]" : "text-[#65706c]"
-                  }`}
-                >
-                  ({count})
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Results Grid: 1 col on mobile, 2 on tablet, 4 on desktop */}
-        {filteredResults.length > 0 ? (
-          <div className="mt-6 sm:mt-8 grid border-l border-t border-[#d8d1c2] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {filteredResults.map((student) => (
-              <ResultCard key={student.id} student={student} />
-            ))}
-          </div>
-        ) : (
-          <div className="mt-10 py-10 text-center text-xs sm:text-sm text-[#626b6b]">
-            No results match your search criteria. Try selecting &ldquo;All Results&rdquo;.
-          </div>
-        )}
-
-        {/* Bottom Achievement Milestones Banner */}
-        <div className="mt-10 flex flex-col md:flex-row md:items-center justify-between gap-6 border-t border-[#ded8ca] pt-6 sm:pt-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-            <div>
-              <p className="text-2xl font-black text-[#192e4b]">721+</p>
-              <p className="mt-0.5 text-xs text-[#626b6b]">
-                Total Selections to IITs (PACE Programme Record)
-              </p>
-            </div>
-            <div>
-              <p className="text-xl sm:text-2xl font-black text-[#a8322b]">District 1st Ranks</p>
-              <p className="mt-0.5 text-xs text-[#626b6b]">
-                Maharashtra State Scholarship Exams (Ramanujan)
-              </p>
-            </div>
-            <div>
-              <p className="text-2xl font-black text-[#496b58]">100 / 100</p>
-              <p className="mt-0.5 text-xs text-[#626b6b]">
-                State Merit 1st in Maths &amp; Science Wisdom
-              </p>
-            </div>
-          </div>
-
-          <div className="w-full sm:w-auto">
-            <ActionButton
-              href="#admissions"
-              variant="primary"
-              hasArrow
-              diagonalArrow
-              className="w-full sm:w-auto"
+        {/* Gallery Grid (No borders, no rounded corners, no background boxes) */}
+        <div
+          className={`mt-8 ${
+            images.length === 1
+              ? "max-w-3xl mx-auto"
+              : "grid gap-6 grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto"
+          }`}
+        >
+          {images.map((item, index) => (
+            <div
+              key={item.id}
+              onClick={() => handleOpen(index)}
+              className="cursor-pointer overflow-hidden transition-opacity hover:opacity-90 aspect-[720/480]"
             >
-              Enquire For Admissions
-            </ActionButton>
-          </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={item.src}
+                alt={item.title || "Academic Result Milestone"}
+                className="w-full h-full object-cover block"
+              />
+            </div>
+          ))}
         </div>
       </div>
+
+      {/* Lightbox Modal for Zoom & Full View */}
+      {selectedImageIndex !== null && currentItem && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-2 sm:p-6 backdrop-blur-md transition-opacity duration-300"
+          onClick={handleClose}
+        >
+          {/* Controls Bar */}
+          <div
+            className="absolute top-0 right-0 z-20 flex items-center gap-3 p-4 sm:p-6"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Zoom In/Out Toggle */}
+            <button
+              type="button"
+              onClick={() => setIsZoomed((prev) => !prev)}
+              aria-label={isZoomed ? "Zoom out" : "Zoom in"}
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/30 focus:outline-none"
+              title={isZoomed ? "Zoom Out" : "Zoom In"}
+            >
+              <span className="text-xl font-bold leading-none">
+                {isZoomed ? "−" : "+"}
+              </span>
+            </button>
+
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={handleClose}
+              aria-label="Close image viewer"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-[#a8322b] focus:outline-none"
+            >
+              <span className="text-2xl font-bold leading-none">&times;</span>
+            </button>
+          </div>
+
+          {/* Image Container */}
+          <div
+            className="relative flex max-h-[90vh] max-w-[95vw] items-center justify-center overflow-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={currentItem.src}
+              alt={currentItem.title || "Academic Result Milestone"}
+              onClick={() => setIsZoomed((prev) => !prev)}
+              className={`max-h-[88vh] max-w-[92vw] select-none object-contain shadow-2xl transition-transform duration-300 ${
+                isZoomed
+                  ? "scale-150 cursor-zoom-out"
+                  : "scale-100 cursor-zoom-in"
+              }`}
+            />
+          </div>
+
+          {/* Navigation Arrows (if multiple images) */}
+          {images.length > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handlePrev();
+                }}
+                aria-label="Previous image"
+                className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition hover:bg-white hover:text-[#192e4b] focus:outline-none"
+              >
+                <span className="text-base sm:text-xl font-bold">←</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleNext();
+                }}
+                aria-label="Next image"
+                className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition hover:bg-white hover:text-[#192e4b] focus:outline-none"
+              >
+                <span className="text-base sm:text-xl font-bold">→</span>
+              </button>
+
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-black/60 px-3 py-1 text-xs font-bold text-white/90 backdrop-blur-sm">
+                {selectedImageIndex + 1} / {images.length}
+              </div>
+            </>
+          )}
+        </div>
+      )}
     </section>
   );
 }
