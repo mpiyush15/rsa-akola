@@ -196,7 +196,7 @@ export const PROGRAMMES: ProgrammeCoverage[] = [
   },
   {
     title: "Scholarship Examination Preparation",
-    classes: "Classes 4th, 5th, 7th & 8th",
+    classes: "Classes 4th & 7th",
     badge: "Merit Competitions",
     description: "Dedicated preparation for state scholarship examinations and academic merit awards.",
     items: [
@@ -213,6 +213,8 @@ export const PROGRAMMES: ProgrammeCoverage[] = [
     badge: "National Competitions",
     description: "Prepare for national Olympiads through structured practice and subject-focused deep learning.",
     items: [
+      "RMO (Regional Mathematical Olympiad)",
+      "Pre-RMO (Pre-Regional Mathematical Olympiad)",
       "IMO (International Mathematics Olympiad)",
       "NSO (National Science Olympiad) & IEO",
       "MTSE & NMTC (AMTI competitions)",
