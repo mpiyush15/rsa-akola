@@ -17,8 +17,8 @@ export const DEFAULT_HERO_BANNERS: HeroBannerItem[] = [
     alt: "8th Scholarship Examination Results 2025 - Ramanujan Scholar Academy Akola",
   },
   {
-    src: "https://pixels-official.s3.ap-south-1.amazonaws.com/rsa-akola/pace.png?v=2",
-    alt: "PACE IIT & Medical Mumbai Selections & Results - Akola",
+    src: "https://pixels-official.s3.ap-south-1.amazonaws.com/rsa-akola/pace+bnner+imp.png",
+    alt: "PACE IIT & Medical Integrated Programme - Ramanujan Scholar Academy Akola",
   },
 ];
 

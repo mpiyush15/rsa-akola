@@ -20,6 +20,11 @@ export const RESULT_GALLERY_IMAGES: ResultGalleryItem[] = [
     src: "https://pixels-official.s3.ap-south-1.amazonaws.com/rsa-akola/jee+akolyat.png",
     title: "JEE Advanced & Mains Selections in Akola - PACE & Ramanujan",
   },
+  {
+    id: "gallery-3",
+    src: "https://pixels-official.s3.ap-south-1.amazonaws.com/rsa-akola/homi+bhabha+2024.png",
+    title: "Dr. Homi Bhabha Balvaidyanik Competition 2024 Results - Ramanujan Scholar Academy",
+  },
 ];
 
 export default function StudentResultsSection() {
@@ -91,19 +96,13 @@ export default function StudentResultsSection() {
           </div>
         </div>
 
-        {/* Gallery Grid (No borders, no rounded corners, no background boxes) */}
-        <div
-          className={`mt-8 ${
-            images.length === 1
-              ? "max-w-3xl mx-auto"
-              : "grid gap-6 grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto"
-          }`}
-        >
+        {/* Gallery Grid (720x480 aspect, 4 images in a row on desktop) */}
+        <div className="mt-8 sm:mt-10 grid gap-5 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 w-full">
           {images.map((item, index) => (
             <div
               key={item.id}
               onClick={() => handleOpen(index)}
-              className="cursor-pointer overflow-hidden transition-opacity hover:opacity-90 aspect-[720/480]"
+              className="cursor-pointer overflow-hidden transition-opacity hover:opacity-90 aspect-[720/480] w-full"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

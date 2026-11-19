@@ -114,7 +114,7 @@ export const NAV_LINKS: NavLink[] = [
   { label: "Programmes", href: "#programmes" },
   { label: "PACE Initiative", href: "#pace-initiative" },
   { label: "Our Approach", href: "#approach" },
-  { label: "Achievements", href: "#achievements" },
+  { label: "Results", href: "#results" },
   { label: "Scholarship Exam", href: "#scholarship" },
   { label: "Why RSA", href: "#why-rsa" },
   { label: "Admissions", href: "#admissions" },
