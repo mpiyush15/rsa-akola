@@ -10,17 +10,12 @@ export default function Footer() {
           {/* Column 1: Brand & Positioning */}
           <div>
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-white/30 text-xl font-bold text-white">
-                R<span className="-ml-0.5 mt-2 text-[#d9c58f]">.</span>
-              </div>
-              <div>
-                <p className="text-sm sm:text-base font-bold uppercase tracking-wider text-white">
-                  {BRAND_INFO.name}
-                </p>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-[#d9c58f]">
-                  {BRAND_INFO.tagline}
-                </p>
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://pixels-official.s3.ap-south-1.amazonaws.com/rsa-akola/Logo+web.png"
+                alt={BRAND_INFO.name}
+                className="h-11 sm:h-12 w-auto object-contain rounded bg-white px-2.5 py-1"
+              />
             </div>
 
             <p className="mt-3.5 max-w-md text-xs sm:text-sm leading-relaxed text-white/70">

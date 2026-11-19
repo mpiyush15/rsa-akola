@@ -58,20 +58,16 @@ export default function Header() {
         {/* Brand Logo */}
         <a
           href="#home"
-          className="flex shrink-0 items-center gap-2 sm:gap-3 focus:outline-none focus:ring-2 focus:ring-[#192e4b]"
+          className="flex shrink-0 items-center focus:outline-none focus:ring-2 focus:ring-[#192e4b] rounded"
           onClick={closeMobileMenu}
+          aria-label="Ramanujan Scholar Academy Akola - Home"
         >
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-[#192e4b] text-lg font-bold text-[#192e4b] sm:h-11 sm:w-11 sm:text-2xl">
-            R<span className="-ml-0.5 mt-1 text-[#a8322b]">.</span>
-          </div>
-          <div className="shrink-0">
-            <p className="text-[11px] sm:text-base font-bold uppercase leading-tight tracking-[0.06em] text-[#192e4b] whitespace-nowrap">
-              Ramanujan
-            </p>
-            <p className="mt-0.5 text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.16em] text-[#496b58] whitespace-nowrap">
-              Scholar Academy
-            </p>
-          </div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://pixels-official.s3.ap-south-1.amazonaws.com/rsa-akola/Logo+web.png"
+            alt="Ramanujan Scholar Academy Akola"
+            className="h-10 sm:h-12 md:h-14 w-auto object-contain block max-w-[200px] sm:max-w-[280px]"
+          />
         </a>
 
         {/* Desktop Navigation Links */}
@@ -159,19 +155,15 @@ export default function Header() {
                 <a
                   href="#home"
                   onClick={closeMobileMenu}
-                  className="flex min-w-0 items-center gap-2"
+                  className="flex min-w-0 items-center"
+                  aria-label="Ramanujan Scholar Academy"
                 >
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center border border-[#192e4b] text-base font-bold text-[#192e4b]">
-                    R<span className="-ml-0.5 mt-0.5 text-[#a8322b]">.</span>
-                  </div>
-                  <div className="truncate">
-                    <p className="text-xs font-bold uppercase leading-tight tracking-[0.06em] text-[#192e4b] truncate">
-                      Ramanujan
-                    </p>
-                    <p className="text-[8px] font-bold uppercase tracking-[0.18em] text-[#496b58] truncate">
-                      Scholar Academy
-                    </p>
-                  </div>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="https://pixels-official.s3.ap-south-1.amazonaws.com/rsa-akola/Logo+web.png"
+                    alt="Ramanujan Scholar Academy Akola"
+                    className="h-8 w-auto object-contain block max-w-[180px]"
+                  />
                 </a>
 
                 {/* Close Button */}
