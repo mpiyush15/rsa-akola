@@ -109,16 +109,13 @@ export const CONTACT_INFO = {
 
 // NAVIGATION
 export const NAV_LINKS: NavLink[] = [
-  { label: "Home", href: "#home" },
-  { label: "About Us", href: "#about" },
-  { label: "Programmes", href: "#programmes" },
-  { label: "PACE Initiative", href: "#pace-initiative" },
-  { label: "Our Approach", href: "#approach" },
-  { label: "Results", href: "#results" },
-  { label: "Scholarship Exam", href: "#scholarship" },
-  { label: "Why RSA", href: "#why-rsa" },
-  { label: "Admissions", href: "#admissions" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Programmes", href: "/#programmes" },
+  { label: "PACE Initiative", href: "/#pace-initiative" },
+  { label: "Results", href: "/#results" },
+  { label: "Question Papers", href: "/question-papers" },
+  { label: "Scholarship Exam", href: "/#scholarship" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 // 1. HERO CONTENT

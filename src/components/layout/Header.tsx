@@ -57,7 +57,7 @@ export default function Header() {
       >
         {/* Brand Logo */}
         <a
-          href="#home"
+          href="/#home"
           className="flex shrink-0 items-center focus:outline-none focus:ring-2 focus:ring-[#192e4b] rounded"
           onClick={closeMobileMenu}
           aria-label="Ramanujan Scholar Academy Akola - Home"
@@ -71,12 +71,12 @@ export default function Header() {
         </a>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden items-center gap-6 text-[12px] font-semibold text-[#46515a] xl:flex">
+        <div className="hidden items-center gap-5 xl:gap-7 text-[13px] font-semibold text-[#46515a] lg:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-[#a8322b] focus:outline-none focus:text-[#a8322b]"
+              className="transition-colors hover:text-[#a8322b] focus:outline-none focus:text-[#a8322b] whitespace-nowrap"
             >
               {link.label}
             </a>
@@ -87,7 +87,7 @@ export default function Header() {
         <div className="flex items-center gap-2 sm:gap-3">
           {/* Admissions Enquiry CTA */}
           <a
-            href="#admissions"
+            href="/#admissions"
             className="group inline-flex h-9 items-center justify-center gap-1.5 bg-[#a8322b] px-3.5 sm:px-4 text-xs font-bold text-white transition-colors hover:bg-[#872720] active:bg-[#72201a] shadow-xs whitespace-nowrap"
           >
             <span className="leading-none sm:hidden">Enquire</span>
@@ -112,7 +112,7 @@ export default function Header() {
             onClick={toggleMobileMenu}
             aria-expanded={mobileMenuOpen}
             aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-            className="inline-flex h-9 w-9 items-center justify-center border border-[#ded8ca] bg-white text-[#192e4b] transition-colors hover:bg-[#f0eee5] xl:hidden focus:outline-none focus:ring-2 focus:ring-[#192e4b] cursor-pointer"
+            className="inline-flex h-9 w-9 items-center justify-center border border-[#ded8ca] bg-white text-[#192e4b] transition-colors hover:bg-[#f0eee5] lg:hidden focus:outline-none focus:ring-2 focus:ring-[#192e4b] cursor-pointer"
           >
             <svg
               className="h-4 w-4"
@@ -136,7 +136,7 @@ export default function Header() {
         mobileMenuOpen &&
         createPortal(
           <div
-            className="fixed inset-0 z-[99999] flex justify-end xl:hidden overflow-hidden"
+            className="fixed inset-0 z-[99999] flex justify-end lg:hidden overflow-hidden"
             role="dialog"
             aria-modal="true"
             aria-label="Navigation Menu"
@@ -153,7 +153,7 @@ export default function Header() {
               {/* Drawer Top Header */}
               <div className="flex items-center justify-between gap-3 border-b border-[#ded8ca] bg-[#f8f6ef] px-4 py-3.5">
                 <a
-                  href="#home"
+                  href="/#home"
                   onClick={closeMobileMenu}
                   className="flex min-w-0 items-center"
                   aria-label="Ramanujan Scholar Academy"

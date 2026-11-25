@@ -51,7 +51,7 @@ export default function MobileStickyActionBar() {
 
         {/* Quick Admissions Enquiry */}
         <a
-          href="#admissions"
+          href="/#admissions"
           className="group flex-1 inline-flex h-10 items-center justify-center gap-1.5 bg-[#a8322b] px-3 text-xs font-bold text-white shadow-xs active:bg-[#872720] whitespace-nowrap"
         >
           <span className="leading-none">Enquire Now</span>
