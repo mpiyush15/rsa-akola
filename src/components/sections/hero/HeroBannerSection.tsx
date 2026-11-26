@@ -20,6 +20,14 @@ export const DEFAULT_HERO_BANNERS: HeroBannerItem[] = [
     src: "https://pixels-official.s3.ap-south-1.amazonaws.com/rsa-akola/pace+bnner+imp.png",
     alt: "PACE IIT & Medical Integrated Programme - Ramanujan Scholar Academy Akola",
   },
+  {
+    src: "https://pixels-official.s3.ap-south-1.amazonaws.com/mtse.png",
+    alt: "MTSE Examination Results & Achievers - Ramanujan Scholar Academy Akola",
+  },
+  {
+    src: "https://pixels-official.s3.ap-south-1.amazonaws.com/ganot+pradnya+shodh+5th.png",
+    alt: "Ganit Pradnya Shodh Pariksha 5th Standard Results - Ramanujan Scholar Academy Akola",
+  },
 ];
 
 interface HeroBannerSectionProps {

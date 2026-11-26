@@ -25,6 +25,21 @@ export const RESULT_GALLERY_IMAGES: ResultGalleryItem[] = [
     src: "https://pixels-official.s3.ap-south-1.amazonaws.com/rsa-akola/homi+bhabha+2024.png",
     title: "Dr. Homi Bhabha Balvaidyanik Competition 2024 Results - Ramanujan Scholar Academy",
   },
+  {
+    id: "gallery-4",
+    src: "https://pixels-official.s3.ap-south-1.amazonaws.com/ganit+pradnya+shodh+.png",
+    title: "Ganit Pradnya Shodh Pariksha Results - Ramanujan Scholar Academy",
+  },
+  {
+    id: "gallery-5",
+    src: "https://pixels-official.s3.ap-south-1.amazonaws.com/mw+sate.png",
+    title: "State Merit List & Scholarship Achievers - Ramanujan Scholar Academy",
+  },
+  {
+    id: "gallery-6",
+    src: "https://pixels-official.s3.ap-south-1.amazonaws.com/scholar+res+1.png",
+    title: "Scholarship Examination Top Rankers - Ramanujan Scholar Academy",
+  },
 ];
 
 export default function StudentResultsSection() {
