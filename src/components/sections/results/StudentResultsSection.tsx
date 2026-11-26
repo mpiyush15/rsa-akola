@@ -40,6 +40,16 @@ export const RESULT_GALLERY_IMAGES: ResultGalleryItem[] = [
     src: "https://pixels-official.s3.ap-south-1.amazonaws.com/scholar+res+1.png",
     title: "Scholarship Examination Top Rankers - Ramanujan Scholar Academy",
   },
+  {
+    id: "gallery-7",
+    src: "https://pixels-official.s3.ap-south-1.amazonaws.com/scholar+2023.png",
+    title: "State Scholarship Examination 2023 Achievers - Ramanujan Scholar Academy",
+  },
+  {
+    id: "gallery-8",
+    src: "https://pixels-official.s3.ap-south-1.amazonaws.com/scholar+5th+2023.png",
+    title: "5th Scholarship Examination 2023 Merit List - Ramanujan Scholar Academy",
+  },
 ];
 
 export default function StudentResultsSection() {
